@@ -16,8 +16,8 @@ properties([
 							submoduleCfg: [],
 							userRemoteConfigs: [[
 							credentialsId: 'none',
-						       url: 'https://github.com/nandha060101/dinesh.git']]]),
-						       branches: [[name: '*/demo']]
+						       url: 'https://github.com/nandha060101/dinesh.git'
+						       branches: [[name: '*/demo']]]]]),
 							
 echo "nandha.groovy"
 
