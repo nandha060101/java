@@ -11,7 +11,7 @@ properties([
                         {
 							checkout([
 							$class: 'GitSCM',
-							branches: [[name: '*/demo']],
+							branches: [[name: '*/demon']],
 							doGenerateSubmoduleConfigurations: false,
 							extensions: [],
 							submoduleCfg: [],
