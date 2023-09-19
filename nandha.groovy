@@ -20,8 +20,13 @@ properties([
 						       url: 'https://github.com/nandha060101/dinesh.git']]])
 						      
 							
-echo "nandha.groovy"
-
+                        }
+			    stage("Build")
+                        {
+                            sh'''rm -rf /var/lib/jenkins/workspace/UAT-backendjobs/sample-uat/dist/approvalFlow/*
+                                 cd /var/lib/jenkins/workspace/UAT-backendjobs/sample-uat
+                                 npm i --legacy-peer-deps
+                                 NG_PERSISTENT_BUILD_CACHE=1 ng build approvalFlow'''
                         }
                        
                     
