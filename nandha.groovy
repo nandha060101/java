@@ -17,7 +17,7 @@ properties([
 							submoduleCfg: [],
 							userRemoteConfigs: [[
 							credentialsId: 'none',
-							url: 'https://github.com/nandha060101/java.git']]])
+							url: 'https://github.com/nandha060101/dinesh.git']]])
 echo "nandha.groovy"
 
                         }
