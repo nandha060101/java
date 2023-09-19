@@ -18,7 +18,7 @@ properties([
 							userRemoteConfigs: [[
 							credentialsId: 'none',
 							url: 'https://github.com/nandha060101/java.git']]])
-echo nandha.groovy
+echo "nandha.groovy"
 
                         }
                        
