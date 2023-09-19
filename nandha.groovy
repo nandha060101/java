@@ -11,13 +11,14 @@ properties([
                         {
 							checkout([
 							$class: 'GitSCM',
+						       branches: [[name: '*/demo']],
 							doGenerateSubmoduleConfigurations: false,
 							extensions: [],
 							submoduleCfg: [],
 							userRemoteConfigs: [[
 							credentialsId: 'none',
-						       url: 'https://github.com/nandha060101/dinesh.git'
-						       branches: [[name: '*/demo']]]]]),
+						       url: 'https://github.com/nandha060101/dinesh.git']]])
+						      
 							
 echo "nandha.groovy"
 
