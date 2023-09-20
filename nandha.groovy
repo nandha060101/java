@@ -17,16 +17,16 @@ properties([
 							submoduleCfg: [],
 							userRemoteConfigs: [[
 							credentialsId: 'none',
-						       url: 'https://github.com/nandha060101/dinesh.git']]])
+						       url: 'https://github.com/nandha060101/check.git']]])
 						      
 							
                         }
 			    stage("Build")
                         {
-                            sh'''rm -rf /var/lib/jenkins/workspace/UAT-backendjobs/sample-uat/dist/approvalFlow/*
+                            sh'''rm -rf /var/lib/jenkins/workspace/UAT-backendjobs/sample-uat/dist/filecomparisonutility/*
                                  cd /var/lib/jenkins/workspace/UAT-backendjobs/sample-uat
                                  npm i --legacy-peer-deps
-                                 NG_PERSISTENT_BUILD_CACHE=1 ng build approvalFlow'''
+                                 NG_PERSISTENT_BUILD_CACHE=1 ng build filecomparisonutility'''
                         }
                        
                     
