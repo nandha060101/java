@@ -1,0 +1,72 @@
+db:
+   prefix: approvalflow_
+   root: approvalflow
+config:
+  issuers:
+  - https://onelogin-uat.neeyamo.works/realms/
+  
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+      read1:
+         driver-class-name: com.mysql.cj.jdbc.Driver
+         jdbc-url: jdbc:mysql://madurai-aurora-db-uat-cluster.cluster-czrqaazda08a.eu-central-1.rds.amazonaws.com:3306?useSSL=false 
+         username: appuser
+         password: JLVdAWY54EVbhamE8eS
+         hikari:
+            maximum-pool-size: 100
+      write:
+         driver-class-name: com.mysql.cj.jdbc.Driver
+         jdbc-url: jdbc:mysql://madurai-aurora-db-uat-cluster.cluster-czrqaazda08a.eu-central-1.rds.amazonaws.com:3306?useSSL=false 
+         username: appuser
+         password: JLVdAWY54EVbhamE8eS
+         hikari:
+            maximum-pool-size: 100
+  application:
+    name: ApprovalFlow
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L -  %X{dd.trace_id} %X{dd.span_id} - %X{requestid} - %m%n'
+  level:
+      root: info    
+      '[org.springframework.security]': ERROR    
+      '[org.neeyamo.approvalflow]' : DEBUG
+      '[com.zaxxer.hikari]': ERROR
+server:
+  port: 80
+  servlet: 
+    session:
+      tracking-modes: cookie
+      timeout: 3600
+  tomcat:
+    connection-timeout: 120s
+    accesslog:
+      enabled: true
+      directory: /dev
+      prefix: stdout
+      buffered: false
+      suffix:
+      file-date-format:
+      pattern: '%{dd-MM-yyyy HH:mm:ss.SSS}t,  %h, requestid:%{X-Request-ID}i, "%r", Response status:%s, Bytes sent:%b, Response time:%D,rct:%F'    
+
+prinmergeLite:  
+  prinmergeMailURL : https://nws-uat.neeyamo.works/prinmerge/external/send-mail
+  appcode: dataflowmanagement
+  username : templateAPI
+  password : Neeyamo@123
+  bodyTemplate: DFTemplateBody
+  attachmentTemplate: DFTemplatePdf
+mdmWebService:
+  URL: http://mdm-uat.local/config/
+  username: employeeSelfService
+  password: employeeSelfService
+  fetchEmployeeURL: /employee/fetchEmployeeDetails
+neosuite: 
+  URL: https://nws-uat.neeyamo.works/neosuite/externalApi/fetchAllApplications
+  username: apiAdmin
+  password: Neeyamo@123
+customerOnboarding:
+  URL : https://nws-uat.neeyamo.works/customer-onboarding/externalapi/tenants/root/external/auto-configuration-response
+  username: customerOnboardingAdmin
+  password: Onboarding123

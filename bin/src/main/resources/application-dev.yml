@@ -1,0 +1,61 @@
+db:
+   prefix: approvalflow_
+   root: approvalflow
+config:
+  issuers:
+  - https://oneloginuat.neeyamo.works/realms/neeyamo
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+      read1:
+         driver-class-name: com.mysql.cj.jdbc.Driver
+         jdbc-url: jdbc:mysql://madurai-uat.cluster-cbidzncfqyh5.eu-central-1.rds.amazonaws.com:3306?useSSL=false 
+         username: appuser
+         password: JLVdAWY54EVbhamE8eS
+         hikari:
+            maximum-pool-size: 100
+      write:
+         driver-class-name: com.mysql.cj.jdbc.Driver
+         jdbc-url: jdbc:mysql://madurai-uat.cluster-cbidzncfqyh5.eu-central-1.rds.amazonaws.com:3306?useSSL=false 
+         username: appuser
+         password: JLVdAWY54EVbhamE8eS
+         hikari:
+            maximum-pool-size: 100
+  application:
+    name: ApprovalFlow
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L -  %X{dd.trace_id} %X{dd.span_id} - %X{requestid} - %m%n'
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.cache : TRACE
+server:
+  port: 8084
+  servlet: 
+    session:
+      tracking-modes: cookie
+      timeout: 3600
+  tomcat:
+    connection-timeout: 120s
+    accesslog:
+      enabled: true
+      directory: /dev
+      prefix: stdout
+      buffered: false
+      suffix:
+      file-date-format:
+      pattern: '%{dd-MM-yyyy HH:mm:ss.SSS}t,  %h, requestid:%{X-Request-ID}i, "%r", Response status:%s, Bytes sent:%b, Response time:%D,rct:%F'    
+
+prinmergeLite:  
+  prinmergeMailURL : https://prinmergeliteuat.neeyamo.works/clApi/sendMailByTemplate
+  appcode: dataflowmanagement
+  username : templateAPI
+  password : Neeyamo@123
+  bodyTemplate: DFTemplateBody
+  attachmentTemplate: DFTemplatePdf
+mdmWebService:
+  URL: https://nwsuat.neeyamo.works/config/
+  username: payrollpricing
+  password: payrollpricing
+  fetchEmployeeURL: /employee/fetchEmployeeName
